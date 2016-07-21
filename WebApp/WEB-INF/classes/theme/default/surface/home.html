@@ -664,16 +664,10 @@
 					return ;					
 				}
 				
-								var CodeV="#!/usr/bin/env python\n"+
-								"# -*- coding: utf-8 -*-\n"+
-"#\n"+
-"# Copyright (C) 2016 by DiscoveryDBS\n"+
-"# All rights reserved.\n";
-				
 				if(o==0){
 		    	//$("#codelist").html();
 					fileName = person+".py";
-					editor.setValue(CodeV);
+					//editor.setValue(CodeV);
 				}else if (o==1){
 					fileName = person+".r";
 					editor.setValue('#!/usr/bin/env Rscript');
@@ -699,7 +693,7 @@
 						}
 				
 						var newFile = "<li class='dropdown'>"+
-										  	"<a href='#'  id='"+fileName+"' onclick=\"getNowCode('"+fileName+"')\">"+fileName+"</a>"+
+										  	"<a href='#'  id='"+fileName+"' onclick=\"getNowCode('"+fileName+"', 0)\">"+fileName+"</a>"+
 										  	
 										  " </li>";
 						$("#codelist").html(newFile+file_list);
@@ -723,7 +717,7 @@
 				setCookie("pi_"+PorjectInfo['name'],cont , 1);
 				
 
-							
+				getNowCode(fileName, 1);
 			}
 			
 			
@@ -950,13 +944,13 @@
 					}
 					 
 					newFile += "<li class='dropdown'>"+
-								  	"<a href='#'  id='"+file_list[i]+"' onclick=\"getNowCode('"+file_list[i]+"')\">"+file_list[i]+"</a>"+
+								  	"<a href='#'  id='"+file_list[i]+"' onclick=\"getNowCode('"+file_list[i]+"',0)\">"+file_list[i]+"</a>"+
 								  
 								  " </li>";
 				}
 				$("#codelist").html(newFile);								
 				
-				getNowCode("main"+ntype);
+				getNowCode("main"+ntype, 0);
 			}
 			
 			function reProName () {
@@ -993,7 +987,7 @@
 				}
 			}
 			
-			function getNowCode (f) {
+			function getNowCode (f, o) {
 				var code="";
 				/*
 				ajax get 
@@ -1022,10 +1016,20 @@
 				CurrentCode[PorjectInfo['name']+"_"+CurrentCodeName] = codeValue;
 				
 				CurrentCodeName = f;
+				var newVal = "";
 				
-				var newVal = CurrentCode[PorjectInfo['name']+"_"+CurrentCodeName];
+				if(o==0){
+					newVal = CurrentCode[PorjectInfo['name']+"_"+CurrentCodeName];
+				}else{
+					newVal ="#!/usr/bin/env python\n"+
+								"# -*- coding: utf-8 -*-\n"+
+"#\n"+
+"# Copyright (C) 2016 by DiscoveryDBS\n"+
+"# All rights reserved.\n";
+				}
 				
-				if(newVal.length >0){
+				
+				if(newVal != undefined && newVal.length >0){
 					editor.setValue(newVal);
 				}else{									
 					$.ajax({
@@ -1041,8 +1045,10 @@
 							  },
 							  complete: function(request, textStatus) { //for additional info
 								  var option = request.responseText;
-								 	console.log("option"+option);
-									editor.setValue(option);
+								  if(option.length>0){
+								 		console.log("option"+option);
+										editor.setValue(option);
+									}
 							  }
 							});
 						
