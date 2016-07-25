@@ -7,7 +7,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.zip.CRC32;
 import java.util.zip.Checksum;
 
-import com.alibaba.fastjson.util.Base64;
+import org.apache.commons.codec.binary.Base64;
 
 public class Encrypt {
 	public static Encrypt config = null;
@@ -66,8 +66,10 @@ public class Encrypt {
 	}
 
 	public String Base64_Decode(String encodedBytes) {
-		byte[] decodedBytes = Base64.decodeFast(encodedBytes);
+		byte[] decodedBytes = Base64.decodeBase64(encodedBytes);
+
 		return new String(decodedBytes);
+
 	}
 
 	public String toHex(String arg) {
