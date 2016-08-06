@@ -4,49 +4,9 @@
 	<groupId>discovery</groupId>
 	<artifactId>discovery</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>discovery_framework</name>
-	<description>a java web framework</description>
-
-	<!-- build -->
-	<build>
-		<sourceDirectory>src</sourceDirectory>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3.2</version>
-				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
-					<optimize>true</optimize>
-					<debug>true</debug>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-eclipse-plugin</artifactId>
-				<version>2.8</version>
-				<configuration>
-					<downloadSources>true</downloadSources>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-war-plugin</artifactId>
-				<version>2.1.1</version>
-				<configuration>
-					<failOnMissingWebXml>false</failOnMissingWebXml>
-					<archive>
-						<manifest>
-							<addClasspath>true</addClasspath>
-							<classpathPrefix>lib/</classpathPrefix>
-						</manifest>
-					</archive>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
-	<!-- build -->
+	<packaging>war</packaging>
+	<name>mytestmaven</name>
+	<description>mytestmaven web desc</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -57,10 +17,6 @@
 		<guice.version>3.0</guice.version>
 		<wicket.version>1.5.2</wicket.version>
 	</properties>
-
-
-
-
 	<dependencies>
 		<!--GUICE DEPENDENCIES -->
 		<dependency>
@@ -78,7 +34,6 @@
 			<artifactId>guice-persist</artifactId>
 			<version>${guice.version}</version>
 		</dependency>
-
 
 		<dependency>
 			<groupId>com.zaxxer</groupId>
@@ -99,16 +54,10 @@
 		<dependency>
 			<groupId>org.mongodb</groupId>
 			<artifactId>mongo-java-driver</artifactId>
-			<version>2.13.0-rc2</version>
+			<version>2.13.0-rc0</version>
 		</dependency>
 		<!-- mongodb end -->
-		<!-- postgresql -->
-		<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-			<version>9.4-1201-jdbc41</version>
-		</dependency>
-		<!-- postgresql end -->
+
 		<!-- LOGGING DEPENDENCIES - LOG4J -->
 		<!-- log -->
 		<dependency>
@@ -173,12 +122,6 @@
 			<artifactId>fastjson</artifactId>
 			<version>1.2.3</version>
 		</dependency>
-
-		<dependency>
-			<groupId>org.json</groupId>
-			<artifactId>json</artifactId>
-			<version>20090211</version>
-		</dependency>
 		<!-- json end -->
 
 		<!-- mail -->
@@ -222,100 +165,9 @@
 			<artifactId>jetbrick-template</artifactId>
 			<version>2.0.8</version>
 		</dependency>
-		<!-- html paser -->
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-			<version>3.0</version>
-		</dependency>
-		<!-- html paser -->
-
-		<!--ECharts -->
-		<dependency>
-			<groupId>com.github.abel533</groupId>
-			<artifactId>ECharts</artifactId>
-			<version>2.2.6</version>
-		</dependency>
-
-		<dependency>
-			<groupId>com.google.code.gson</groupId>
-			<artifactId>gson</artifactId>
-			<version>2.3</version>
-		</dependency>
-		<!-- ECharts end -->
-
-		<!-- csv -->
-		<dependency>
-			<groupId>com.opencsv</groupId>
-			<artifactId>opencsv</artifactId>
-			<version>3.3</version>
-		</dependency>
-		<!-- csv end -->
-
-		<!-- generatoruuid -->
-		<dependency>
-			<groupId>com.fasterxml.uuid</groupId>
-			<artifactId>java-uuid-generator</artifactId>
-			<version>3.1.3</version>
-		</dependency>
-		<!-- generatoruuid end -->
-
-		<!-- rjava <dependency> <groupId>org.nuiton.thirdparty</groupId> <artifactId>JRI</artifactId> 
-			<version>0.8-4</version> </dependency> rjava -->
-
-		<!-- REngine -->
-		<dependency>
-			<groupId>org.rosuda.REngine</groupId>
-			<artifactId>REngine</artifactId>
-			<version>2.1.0</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.rosuda.REngine</groupId>
-			<artifactId>Rserve</artifactId>
-			<version>1.8.1</version>
-		</dependency>
-		<!-- REngine -->
-
-		<!-- office word ppt <dependency> <groupId>org.apache.poi</groupId> <artifactId>poi</artifactId> 
-			<version>3.12</version> </dependency> office word ppt -->
-
-
-		<dependency>
-			<groupId>javax.websocket</groupId>
-			<artifactId>javax.websocket-api</artifactId>
-			<version>1.0</version>
-			<scope>provided</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>io.netty</groupId>
-			<artifactId>netty-all</artifactId>
-			<version>5.0.0.Alpha2</version>
-		</dependency>
-
-		<!-- http://mvnrepository.com/artifact/org.quartz-scheduler/quartz -->
-		<dependency>
-			<groupId>org.quartz-scheduler</groupId>
-			<artifactId>quartz</artifactId>
-			<version>2.2.2</version>
-		</dependency>
-
-		<!-- SSH Client -->
-		<dependency>
-			<groupId>com.jcabi</groupId>
-			<artifactId>jcabi-ssh</artifactId>
-			<version>2.0-SNAPSHOT</version>
-		</dependency>
 
 	</dependencies>
-
 	<repositories>
-		<!-- SSH Client -->
-		<repository>
-			<id>oss.sonatype.org</id>
-			<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-		</repository>
 		<repository>
 			<id>Apache Nexus</id>
 			<url>https://repository.apache.org/content/repositories/snapshots/</url>
@@ -327,4 +179,28 @@
 			</snapshots>
 		</repository>
 	</repositories>
+
+	<build>
+		<sourceDirectory>src</sourceDirectory>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.5.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<warSourceDirectory>WebApp</warSourceDirectory>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+
 </project>
