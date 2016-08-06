@@ -6,6 +6,7 @@
 build/
 target/
 .classpath
+.project
 
 # Package Files #
 *.jar

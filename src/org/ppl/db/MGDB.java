@@ -80,30 +80,24 @@ public class MGDB extends PObject {
 
 	private String ErrorMsg = "";
 
+	@SuppressWarnings("deprecation")
 	public MGDB() {
 
 		// Mongo m;
-		try {
 
-			if (globale_config.mongoClient == null) {
-				MongoClientOptions.Builder optionsBuilder = MongoClientOptions
-						.builder().connectionsPerHost(1000)
-						.connectTimeout(15000).maxWaitTime(30000)
-						.socketTimeout(60000)
-						.threadsAllowedToBlockForConnectionMultiplier(5000);
+		if (globale_config.mongoClient == null) {
+			MongoClientOptions.Builder optionsBuilder = MongoClientOptions
+					.builder().connectionsPerHost(1000).connectTimeout(15000)
+					.maxWaitTime(30000).socketTimeout(60000)
+					.threadsAllowedToBlockForConnectionMultiplier(5000);
 
-				MongoClientOptions options = optionsBuilder.build();
-				globale_config.mongoClient = new MongoClient(
-						mgConfig.GetValue("database.host"), options);
-			}
-
-			db = globale_config.mongoClient.getDB(mgConfig
-					.GetValue("database.dbname"));
-
-		} catch (UnknownHostException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			MongoClientOptions options = optionsBuilder.build();
+			globale_config.mongoClient = new MongoClient(
+					mgConfig.GetValue("database.host"), options);
 		}
+
+		db = globale_config.mongoClient.getDB(mgConfig
+				.GetValue("database.dbname"));
 
 	}
 
@@ -262,7 +256,7 @@ public class MGDB extends PObject {
 				return (Map<String, Object>) obj;
 			}
 		} catch (MongoException e) {
-			// TODO: handle exception	
+			// TODO: handle exception
 			echo("hasnext error");
 			dbCursor.close();
 		}
