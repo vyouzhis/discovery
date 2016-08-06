@@ -5,10 +5,6 @@
 	<artifactId>discovery</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-<<<<<<< HEAD
-	<name>mytestmaven</name>
-	<description>mytestmaven web desc</description>
-=======
 	<name>discovery</name>
 	<description>discovery desc</description>
 	<build>
@@ -41,7 +37,6 @@
 		</plugins>
 	</build>
 
->>>>>>> d767b2ce7eaac7d799580b49a33fc330ed555fd1
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -62,10 +57,7 @@
 		<Rserve.version>1.8.1</Rserve.version>
 		<jcabi-ssh.version>2.0-SNAPSHOT</jcabi-ssh.version>
 	</properties>
-<<<<<<< HEAD
-=======
 
->>>>>>> d767b2ce7eaac7d799580b49a33fc330ed555fd1
 	<dependencies>
 		<!--GUICE DEPENDENCIES -->
 		<dependency>
@@ -83,10 +75,6 @@
 			<artifactId>guice-persist</artifactId>
 			<version>${guice.version}</version>
 		</dependency>
-<<<<<<< HEAD
-
-=======
->>>>>>> d767b2ce7eaac7d799580b49a33fc330ed555fd1
 		<dependency>
 			<groupId>org.quartz-scheduler</groupId>
 			<artifactId>quartz</artifactId>
@@ -103,88 +91,20 @@
 		<dependency>
 			<groupId>org.mongodb</groupId>
 			<artifactId>mongo-java-driver</artifactId>
-<<<<<<< HEAD
-			<version>2.13.0-rc0</version>
-		</dependency>
-		<!-- mongodb end -->
-
-		<!-- LOGGING DEPENDENCIES - LOG4J -->
-		<!-- log -->
-		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-api</artifactId>
-			<version>2.0.2</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-core</artifactId>
-			<version>2.0.2</version>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-simple</artifactId>
-			<version>1.7.5</version>
-			<optional>true</optional>
-		</dependency>
-
-		<!-- template -->
-		<dependency>
-			<groupId>org.freemarker</groupId>
-			<artifactId>freemarker</artifactId>
-			<version>2.3.14</version>
-		</dependency>
-		<!-- template -->
-
-		<dependency>
-			<groupId>commons-io</groupId>
-			<artifactId>commons-io</artifactId>
-			<version>2.4</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.hamcrest</groupId>
-			<artifactId>hamcrest-all</artifactId>
-			<version>1.1</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>commons-collections</groupId>
-			<artifactId>commons-collections</artifactId>
-			<version>3.2.1</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.hamcrest</groupId>
-			<artifactId>hamcrest-core</artifactId>
-			<version>1.3</version>
-		</dependency>
-
-
-		<dependency>
-			<groupId>portlet-api</groupId>
-			<artifactId>portlet-api</artifactId>
-			<version>1.0</version>
-		</dependency>
-
-=======
 			<version>${mongodb.version}</version>
 		</dependency>
 		<!-- mongodb end -->
->>>>>>> d767b2ce7eaac7d799580b49a33fc330ed555fd1
 		<!-- json -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
 			<version>${alibaba.fastjson.version}</version>
 		</dependency>
-<<<<<<< HEAD
-=======
 		<dependency>
 			<groupId>org.json</groupId>
 			<artifactId>json</artifactId>
 			<version>${org.json}</version>
 		</dependency>
->>>>>>> d767b2ce7eaac7d799580b49a33fc330ed555fd1
 		<!-- json end -->
 		<dependency>
 			<groupId>org.freemarker</groupId>
@@ -203,9 +123,6 @@
 			<artifactId>HikariCP</artifactId>
 			<version>${HikariCP.version}</version>
 		</dependency>
-<<<<<<< HEAD
-
-=======
 		<dependency>
 			<groupId>commons-codec</groupId>
 			<artifactId>commons-codec</artifactId>
@@ -244,9 +161,13 @@
 			<artifactId>jcabi-ssh</artifactId>
 			<version>${jcabi-ssh.version}</version>
 		</dependency>
->>>>>>> d767b2ce7eaac7d799580b49a33fc330ed555fd1
 	</dependencies>
 	<repositories>
+		<!-- SSH Client -->
+		<repository>
+			<id>oss.sonatype.org</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+		</repository>
 		<repository>
 			<id>Apache Nexus</id>
 			<url>https://repository.apache.org/content/repositories/snapshots/</url>
@@ -259,35 +180,9 @@
 		</repository>
 	</repositories>
 
-<<<<<<< HEAD
-	<build>
-		<sourceDirectory>src</sourceDirectory>
-		<plugins>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.5.1</version>
-				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-				</configuration>
-			</plugin>
-			<plugin>
-				<artifactId>maven-war-plugin</artifactId>
-				<version>2.6</version>
-				<configuration>
-					<warSourceDirectory>WebApp</warSourceDirectory>
-					<failOnMissingWebXml>false</failOnMissingWebXml>
-				</configuration>
-			</plugin>
-
-		</plugins>
-	</build>
-
-=======
 	<url>www.etomc2.com</url>
 	<organization>
 		<name>etomc2</name>
 		<url>www.etomc2.com</url>
 	</organization>
->>>>>>> d767b2ce7eaac7d799580b49a33fc330ed555fd1
 </project>
